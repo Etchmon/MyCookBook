@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "passwood",
+    "password": "password",
     "database": "trail_db",
     "host": "localhost",
     "dialect": "mysql"
