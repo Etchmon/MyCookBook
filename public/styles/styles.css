@@ -1,3 +1,15 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  margin-top: 20px;
+}
+
+#jumbobg
+{
+  background-image: url("../images/Oregon_trail_banner.jpg");
+  opacity: 0.9;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  height: 180px;
+}

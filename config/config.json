@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "MyDATA",
-    "database": "exampledb",
+    "password": "password",
+    "database": "trail_db",
     "host": "localhost",
     "dialect": "mysql"
   },
