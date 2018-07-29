@@ -11,6 +11,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // the character's occupaton (a string)
+    occupaton: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     // the character's health (an integer)
     health: {
       type: DataTypes.INTEGER,
