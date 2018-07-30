@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/users", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
+    db.User.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
@@ -21,4 +21,12 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  app.post("/api/character", function(req, res){
+    var userId = req.body.userId;
+    db.Character.create({
+      name: req.body.name,
+      userId: userId
+    })
+  })
 };
