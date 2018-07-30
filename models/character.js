@@ -25,7 +25,12 @@ module.exports = function (sequelize, DataTypes) {
     character_level: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    }
+    },
+    // the name of the user (a string)
+    user_name_character: {
+      type: DataTypes.STRING,
+      allowNull: false,
+  }
   });
   return Character;
 };

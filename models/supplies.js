@@ -6,6 +6,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // the name of the user (a string)
+    user_name_supplies: {
+      type: DataTypes.STRING,
+      allowNull: false,
+  },
     // the character's number of oxen (an integer)
     oxen: {
       type: DataTypes.INTEGER,

@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt-nodejs'
 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        // the name of the character (a string)
+        // the name of the user (a string)
         user_name: {
             type: DataTypes.STRING,
             allowNull: false,
