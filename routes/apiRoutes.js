@@ -32,7 +32,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/recipes", function(req, res) {
-    db.User.create(req.body).then(function(dbExample) {
+    db.Recipes.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
