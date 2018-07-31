@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "MyDATA",
-    "database": "trail_db",
+    "database": "myCookbook_DB",
     "host": "localhost",
     "dialect": "mysql"
   },
