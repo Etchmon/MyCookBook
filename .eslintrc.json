@@ -21,15 +21,12 @@
         "no-empty-function": "error",
         "no-multi-spaces": "error",
         "no-unused-vars": "error",
-        "camelcase": "error",
+        "camelcase": 0,
         "indent": [
             "error",
             2
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+        "linebreak-style": 0,
         "quotes": [
             "error",
             "double"

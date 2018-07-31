@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Cookbook - View Recipe</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title">
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Jumbotron -->
+  <div class="container viewRecipe">
+    <div class="jumbotron" id="jumboVr">
+      <h1>My Cookbook</h1>
+    </div>
+
+    <!-- Recipe Name Holder -->
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div id="recipeNameHolder">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Column for Blank Area before the User ID -->
+      <div class="col-md-9 col-sm-9">
+        <div id="userIdBlank">
+        </div>
+      </div>
+      <!-- Column for the User ID-->
+      <div class="col-md-3 col-sm-3">
+        <div id="userIdHolder">
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    <div class="row">
+      <!-- Column for Image -->
+      <div class="col-md-2 col-sm-2">
+        <div id="imageIngredients">
+          <img src="img_ingredients.jpg" alt="Ingredients Image" style="width:100px;height:100px;">
+        </div>
+      </div>
+      <!-- Column for Ingredients -->
+      <div class="col-md-10 col-sm-10">
+        <div id="ingredientsHolder">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Column for Image -->
+      <div class="col-md-2 col-sm-2">
+        <div id="imageIntructions">
+          <img src="img_intructions.jpg" alt="Intructions Image" style="width:100px;height:100px;">
+        </div>
+      </div>
+      <!-- Column for Intructions -->
+      <div class="col-md-10 col-sm-10">
+        <div id="intructionsHolder">
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Holder -->
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div id="viewSubmit">
+          <button class="addRecipe w3-button w3-blue">Add Recipe to My Cookbook</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Holder -->
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <footer>
+            Footer
+        </footer>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Custom Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
+    <script src="js/viewRecipe.js" type="text/javascript"></script>
+
+</body>
+
+</html>
