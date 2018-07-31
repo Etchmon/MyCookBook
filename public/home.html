@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/styles/styles.css">
+    <script src="../public/js/user.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#showhidetarget').hide();
+
+            $('#showhidetrigger').click(function () {
+                $('#showhidetarget').toggle(400);
+            });
+        });
+    </script>
+
+
+    <title>My Cookbook</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron" id="jumbobg">
+            <h2>WELCOME TO MY COOKBOOK</h2>
+            <h3>Helping you manage your favorite recipes. Search our extensive database of fantastic dishes and save them to
+                your My Cookbook manager. You can also add your own recipes and share them with our community.</h3>
+            <br>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Please login</h5>
+                    <form action="" method="POST" id="userForm" role="form">
+                        Username:
+                        <input type="text" id="loginUser" size="40"> &nbsp; Password:
+                        <input type="password" id="loginPswrd" size="40"> &nbsp;
+                        <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                            <span class="fas fa-sign-in-alt"></span> Submit</button>
+                    </form>
+                    <p class="card-text"></p>
+                    <em>Not a member?</em> &nbsp; <button class="btn btn-success" id="showhidetrigger">
+                        <span class="far fa-address-card"></span> Join for free!</button><br><br>
+                    <form action="" method="POST" id="userForm" role="form">
+                        <div id="showhidetarget">
+                            <h5 class="card-title">Create your account</h5>
+                            Username:
+                            <input type="text" id="createUser" size="40"> &nbsp; Password:
+                            <input type="password" id="createPswrd" size="40"><br><br>
+                            Upload a Photo: <input type="text" id="photo" size="90"> &nbsp;
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn">  
+                                <span class="far fa-address-card"></span> Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="card bg-dark text-white">
+            <span align="center">
+
+                <p class="card-text">&copy;
+                    <script>new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>, My Cookbook Inc.</p>
+            </span>
+        </div>
+
+    </div>
+</body>
+
+</html>
