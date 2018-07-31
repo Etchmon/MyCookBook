@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "passwood",
     "database": "cookBook",
     "host": "localhost",
     "dialect": "mysql"
