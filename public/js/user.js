@@ -1,7 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var userInput = $("#createUser");
   var userPassword = $("#createPswrd");
-  $(document).on("submit", "#userForm", handleUser);
+
+  $(document).on("click", "#add-btn2", handleUser);
 
   function handleUser(event) {
     event.preventDefault();
@@ -15,6 +16,8 @@ $(document).ready(function() {
     });
   }
   function insertUser(data) {
-    $.post("/api/authors", data).then(data);
+    $.post("/api/users", data, function() {
+      window.location.href = "/cookbook";
+    });
   }
 });
