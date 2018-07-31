@@ -1,12 +1,11 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get route for retrieving a single recipe
-  app.get("/api/showRecipe:id", function(req, res) {
+  app.get("/api/recipes/:id", function(req, res) {
     db.Recipes.findOne({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     }).then(function(dataOneRecipe) {
       res.json(dataOneRecipe);
     });
