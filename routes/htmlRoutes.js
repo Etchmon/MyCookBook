@@ -1,5 +1,8 @@
 var db = require("../models");
+<<<<<<< HEAD
+=======
 var path = require("path");
+>>>>>>> 39a5806e009c241718ea2c2bef549d74c8c32cc0
 
 module.exports = function(app) {
 
