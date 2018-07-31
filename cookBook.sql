@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS cook_DB;
-CREATE DATABASE cook_DB;
+DROP DATABASE IF EXISTS cookBook;
+CREATE DATABASE cookBook;
 
-USE cook_DB;
+USE cookBook;
 
 
 
