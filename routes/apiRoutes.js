@@ -1,10 +1,10 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/showRecipe:recipe_id", function(req, res) {
+  app.get("/api/recipes/:id", function(req, res) {
     db.Recipes.findOne({
       where: {
-        recipe_id: req.params.recipe_id
+        id: req.params.id
       }
     }).then(function(dataOneRecipe) {
       res.json(dataOneRecipe);
