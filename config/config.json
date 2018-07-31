@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "MyDATA",
-    "database": "myCookbook_DB",
+    "password": "password",
+    "database": "cookBook",
     "host": "localhost",
     "dialect": "mysql"
   },
