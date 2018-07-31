@@ -5,7 +5,7 @@ module.exports = function (app) {
 
   // Get route for retrieving a single recipe
   app.get("/api/showRecipe:recipe_id", function (req, res) {
-    db.Author.findOne({
+    db.Recipes.findOne({
       where: {
         recipe_id: req.params.recipe_id
       }
@@ -16,7 +16,7 @@ module.exports = function (app) {
 
   // Post route for saving a new Key Pair
   app.post("/api/newKeyPair", function (req, res) {
-    db.newKeyPair.create(req.body).then(function (dataKeyPair) {
+    db.KeyPair.create(req.body).then(function (dataKeyPair) {
       res.json(dataKeyPair);
     });
   });
