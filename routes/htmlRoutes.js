@@ -1,12 +1,20 @@
-var db = require("./models");
+var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
-  // Load index page
-  app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/add.html"));
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
-  // Render 404 page for any unmatched routes
+
+  app.get("/cookbook", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/cookbook.html"));
+  });
+
+  app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/add.html"));
+  });
+
   app.get("*", function(req, res) {
-    res.render("404");
+    res.sendFile(path.join(__dirname, "../public/404.html"));
   });
 };
