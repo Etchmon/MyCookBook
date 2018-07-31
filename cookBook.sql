@@ -1,0 +1,7 @@
+DROP DATABASE IF EXISTS cook_DB;
+CREATE DATABASE cook_DB;
+
+USE cook_DB;
+
+
+
