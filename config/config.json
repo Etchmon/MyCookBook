@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "MyDATA",
-    "database": "trail_db",
+    "password": "passwood",
+    "database": "cook_db",
     "host": "localhost",
     "dialect": "mysql"
   },
