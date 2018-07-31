@@ -8,8 +8,21 @@ body {
 
 #jumbobg
 {
-  background-image: url("../images/Oregon_trail_banner.jpg");
+  background-image: url("../images/table.jpg");
   opacity: 0.9;
   filter: alpha(opacity=50); /* For IE8 and earlier */
-  height: 180px;
+  height: 620px;
+  align-content: center;
+}
+
+#footer {
+  background-color: #000;
+  color: #FFF;
+  padding: 20px 0;
+  
+}
+
+h2, h3{
+  color: #FFF;
+  text-shadow: 2px 2px 4px #000000;
 }
