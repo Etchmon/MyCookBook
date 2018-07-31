@@ -13,3 +13,27 @@ body {
   filter: alpha(opacity=50); /* For IE8 and earlier */
   height: 180px;
 }
+
+#jumboVr{
+  text-align: center;
+  height: 180px;
+}
+
+#viewSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+footer {
+  font-weight: bold;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ecf0f1;
+  margin-top: 50px;
+}
