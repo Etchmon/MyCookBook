@@ -1,35 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Cookbook - Cookbook Manager</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../public/styles/styles.css">
+  <script src="../public/js/user.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>My Cookbook - Cookbook Manager</title>
 </head>
+
 <body>
-    <div class="container">
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="nav-link" href="home.html">Home</a> |  | <a class="nav-link" href="browse.html">Browse Reciepes</a> | <a class="nav-link" href="browse.html">Browse Reciepes</a>
-      </nav>
+  <div class="container">
 
+    <!-- START Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <!-- Our brand / logo -->
+      <a class="navbar-brand" href="#">My Cookbook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible button -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+
+          <!-- The links of our navbar -->
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="cookbook.html">My Cookbook</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="add.html">Add a Recipe</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html">Browse Recipes</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <!-- END Navbar-->
+
+    <!-- Pretty Image-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron" id="jumbosm"></div>
+      </div>
     </div>
-</body>
-</html>
 
-<table class="table table-hover table-dark">
-   
-    <tbody>
-      <tr>
-        <td><a href="#">Fresh Tomato Salsa</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Fresh Tomato Salsa</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Fresh Tomato Salsa</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Fresh Tomato Salsa</a></td>
-      </tr>
-    </tbody>
-  </table>
+    <!-- START User Image Box-->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+
+          <div class="card-body">
+            <p class="card-text">
+              <em>This cookbook belongs to...</em>
+            </p>
+            <h5 class="card-title">Alice Roach</h5>
+          </div>
+          <!--append user image here-->
+          <div id="userImage">
+            <img class="card-img-top" src="https://media.licdn.com/dms/image/C4E03AQG7tb3rkiz7VQ/profile-displayphoto-shrink_200_200/0?e=1538611200&v=beta&t=DpjV59mv9yRWP4gySh9-V8iNhnxrAgKmfxW4BtqprOU"
+              alt="Card image cap">
+          </div>
+        </div>
+      </div>
+      <!-- END User Image Box-->
+
+      <!--spacer div-->
+      <div class="col-md-1"></div>
+
+      <!--START recipe links-->
+      <div class="col-md-8">
+        <h4>My Recipes</h4>
+        <table class="table table-hover table-light">
+
+          <tbody id="recipeLinksUser">
+            <!--append this code-->
+            <tr>
+              <td>
+                <a href="#">Reciepe</a>
+              </td>
+            </tr>
+            <!--end-->
+            <tr>
+              <td>
+                <a href="#">Fresh Tomato Salsa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#">Fresh Tomato Salsa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#">Fresh Tomato Salsa</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+        <!--END recipe links-->
+
+        <!--Add Recipe Button-->
+        <a class="btn btn-success" href="add.html" role="button">
+          <span class="fas fa-utensils"></span> Add Recipe</a>
+
+      </div>
+    </div>
+
+    <!--START footer-->
+    <div>&nbsp;</div>
+    <div class="card bg-dark text-white">
+      <span align="center">
+
+        <p class="card-text">&copy;
+          <script>new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>, My Cookbook Inc.</p>
+      </span>
+    </div>
+    <!--END footer-->
+
+  </div>
+</body>
+
+</html>
