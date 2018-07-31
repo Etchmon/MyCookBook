@@ -3,15 +3,15 @@ module.exports = function (sequelize, DataTypes) {
     // the name of the character (a string)
     recipeName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     ingredients: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     instructions: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     }
   });
   return Recipes;

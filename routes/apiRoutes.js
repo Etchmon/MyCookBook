@@ -1,11 +1,12 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/showRecipe:recipe_id", function(req, res) {
+  // Get route for retrieving a single recipe
+  app.get("/api/showRecipe:id", function(req, res) {
     db.Recipes.findOne({
       where: {
-        recipe_id: req.params.recipe_id
-      }
+        id: req.params.id,
+      },
     }).then(function(dataOneRecipe) {
       res.json(dataOneRecipe);
     });
@@ -18,6 +19,7 @@ module.exports = function(app) {
     });
   });
 
+  // Get all examples
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
