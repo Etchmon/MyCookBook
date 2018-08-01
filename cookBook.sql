@@ -1,7 +1,0 @@
-DROP DATABASE IF EXISTS cookBook;
-CREATE DATABASE cookBook;
-
-USE cookBook;
-
-
-

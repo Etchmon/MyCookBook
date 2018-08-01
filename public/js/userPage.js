@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   function handleUser(event) {
     event.preventDefault();
-    if (!userInput.val().trim().trim()) {
+    if (!userInput.val().trim()) {
       return;
     }
 
@@ -16,8 +16,11 @@ $(document).ready(function () {
     });
   }
   function insertUser(data) {
-    $.post("/api/users", data, function() {
-      window.location.href = "/cookbook";
+    $.post("/api/users", data, function(response) {
+      console.log(response);
+      var userString = JSON.stringify(response.id);
+      localStorage.setItem("user", userString);
+      // window.location.href = "/cookbook";
     });
   }
 });

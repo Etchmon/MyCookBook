@@ -1,7 +1,9 @@
 $(document).ready(function() {
   // userIdHolderVal holds the User ID of the recipe
-  var userIdHolderVal = $("#userIdHolder");
-
+  var userIdHolderVal = user;
+  console.log("user: " + user);
+  //var userIdHolderVal = $("#userIdHolder");
+  console.log("Start of viewRecipe");
   // Calling the handleGetUserId function
   handleGetUserId();
 
@@ -40,7 +42,7 @@ $(document).ready(function() {
     getRecipes(recipeId);
   }
 
-  // This function grabs posts from the database and updates the view
+  // This function grabs recipes from the database and updates the view
   function getRecipes(recipeId) {
     recipeId = "/?recipe_id=" + recipeId;
 
@@ -60,11 +62,9 @@ $(document).ready(function() {
   function handleAddRecipe() {
     // Make a newChirp object
     var newKeyPair = {
-      user_id: $("#userIdHolder")
-        .val()
-        .trim(),
+      id: user.val().trim(),
       recipe_id: url.split("=")[1],
-      created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
+      created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     };
 
     console.log(newKeyPair);
