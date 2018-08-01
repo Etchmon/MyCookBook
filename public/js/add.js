@@ -14,12 +14,13 @@ $(document).ready(function () {
         insertRecipe({
             recipeName: recipeName.val().trim(),
             ingredients: ingredients.val().trim(),
-            instructions: instruction.val().trim()
+            instructions: instruction.val().trim(),
+            userid: localStorage.getItem("user")
         });
     }
     function insertRecipe(data) {
-        $.post("/api/recipes", data, function () {
-            window.location.href = "/cookbook";
+        $.post("/api/recipes", data, function (response) {
+            console.log(response)
         });
     }
 })

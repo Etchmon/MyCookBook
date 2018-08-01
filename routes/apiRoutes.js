@@ -1,46 +1,64 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  app.get("/api/recipes/:id", function(req, res) {
+module.exports = function (app) {
+  app.get("/api/recipes/:id", function (req, res) {
     db.Recipes.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dataOneRecipe) {
-      res.json(dataOneRecipe);
+    }).then(function (dbRecipe) {
+      res.json(dbRecipe);
     });
   });
 
   // Post route for saving a new Key Pair
-  app.post("/api/newKeyPair", function(req, res) {
-    db.KeyPair.create(req.body).then(function(dataKeyPair) {
+  app.post("/api/newKeyPair", function (req, res) {
+    db.KeyPair.create(req.body).then(function (dataKeyPair) {
       res.json(dataKeyPair);
     });
   });
 
-  // Get all examples
-  app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all users
+  app.get("/api/users", function (req, res) {
+    db.User.findOne({
+      where: {
+        user_name: req.body.user_name,
+        password: req.body.password
+      }
+    }).then(function (dbUsers) {
+      res.json(dbUsers);
     });
   });
 
-  app.get("/api/recipes", function(req, res) {
-    db.Recipes.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  app.get("/api/recipes", function (req, res) {
+    db.Recipes.findAll({}).then(function (dbRecipes) {
+      res.json(dbRecipes);
     });
   });
 
-  // Create a new example
-  app.post("/api/users", function(req, res) {
-    db.User.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new user
+  app.post("/api/users", function (req, res) {
+    db.User.create(req.body).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 
-  app.post("/api/recipes", function(req, res) {
-    db.Recipes.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  app.post("/api/recipes", function (req, res) {
+    db.Recipes.create({
+
+      recipeName: req.body.recipeName,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
+
+    }).then(function (dbRecipe) {
+      db.KeyPair.create({
+
+        user_id: req.body.userid,
+        recipe_id: dbRecipe.id
+
+      }).then(function (dataKeyPair) {
+        res.json(dataKeyPair);
+      });
     });
   });
 };
