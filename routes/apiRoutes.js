@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var bcrypt = require("bcrypt-nodejs");
 module.exports = function(app) {
   // Get route getting one recipe
   app.get("/api/recipes/:id", function(req, res) {
@@ -7,8 +7,8 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(dataOneRecipe) {
-      res.json(dataOneRecipe);
+    }).then(function(dbRecipe) {
+      res.json(dbRecipe);
     });
   });
 
@@ -23,7 +23,6 @@ module.exports = function(app) {
     });
   });
 
-
   // Post route for saving a new Key Pair
   app.post("/api/newKeyPair", function(req, res) {
     db.KeyPair.create(req.body).then(function(dataKeyPair) {
@@ -31,29 +30,71 @@ module.exports = function(app) {
     });
   });
 
-  // Get all examples
+  // Get all users
   app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    db.User.findOne({
+      where: {
+        user_name: req.body.user_name,
+        password: req.body.password
+      }
+    }).then(function(dbUsers) {
+      res.json(dbUsers);
     });
   });
 
   app.get("/api/recipes", function(req, res) {
-    db.Recipes.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    db.Recipes.findAll({}).then(function(dbRecipes) {
+      res.json(dbRecipes);
     });
   });
 
-  // Create a new example
+  // Create a new user
   app.post("/api/users", function(req, res) {
-    db.User.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 
   app.post("/api/recipes", function(req, res) {
-    db.Recipes.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    db.Recipes.create({
+      recipeName: req.body.recipeName,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
+    }).then(function(dbRecipe) {
+      db.KeyPair.create({
+        user_id: req.body.userid,
+        recipe_id: dbRecipe.id
+      }).then(function(dataKeyPair) {
+        res.json(dataKeyPair);
+      });
+      app.post("/api/login", function(req, res) {
+        db.User.findOne({
+          where: {
+            user_name: req.body.user_name
+          }
+        })
+          .then(function(data) {
+            if (data) {
+              bcrypt.compare(req.body.password, data.password, function(
+                err,
+                response
+              ) {
+                if (response) {
+                  res.json(data);
+                } else {
+                  res
+                    .status(400)
+                    .json({ message: "Wrong password", success: false });
+                }
+              });
+            } else {
+              res.status(404).send("No user found");
+            }
+          })
+          .catch(function(err) {
+            res.status(400).send(err);
+          });
+      });
     });
   });
 };
