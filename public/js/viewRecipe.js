@@ -17,7 +17,7 @@ $(document).ready(function() {
   var intructionsHolderVal = $("#intructionsHolder");
 
   // Click events for the add recipe
-  $(document).on("click", "button.addRecipe", handleAddRecipe);
+  $(document).on("click", ".viewbtn", handleAddRecipe);
 
   function handleGetUserId() {
     // The code below handles getting the User ID
@@ -60,7 +60,7 @@ $(document).ready(function() {
   }
 
   function handleAddRecipe() {
-    // Make a newChirp object
+    // Make a newKeyPair object
     var newKeyPair = {
       id: user.val().trim(),
       recipe_id: url.split("=")[1],
