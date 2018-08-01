@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // Get route getting one recipe
   app.get("/api/recipes/:id", function(req, res) {
     db.Recipes.findOne({
       where: {
@@ -10,6 +11,18 @@ module.exports = function(app) {
       res.json(dataOneRecipe);
     });
   });
+
+  // Get route getting all recipes ids from one user
+  app.get("/api/recipes/:id", function(req, res) {
+    db.Recipes.findAll({
+      where: {
+        user_id: req.params.id
+      }
+    }).then(function(dataMyRecipes) {
+      res.json(dataMyRecipes);
+    });
+  });
+
 
   // Post route for saving a new Key Pair
   app.post("/api/newKeyPair", function(req, res) {

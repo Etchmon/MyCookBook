@@ -1,11 +1,14 @@
 $(document).ready(function() {
   // userIdHolderVal holds the User ID of the recipe
-  var userIdHolderVal = user;
-  console.log("user: " + user);
+
+  var userIdHolderVal = localStorage.user;
+
+  console.log("userIdHolderVal: " + userIdHolderVal);
+
   //var userIdHolderVal = $("#userIdHolder");
   console.log("Start of viewRecipe");
   // Calling the handleGetUserId function
-  handleGetUserId();
+  // handleGetUserId();
 
   // recipeNameHolderVal holds the name of the recipe
   var recipeNameHolderVal = $("#recipeNameHolder");
@@ -19,12 +22,12 @@ $(document).ready(function() {
   // Click events for the add recipe
   $(document).on("click", ".viewbtn", handleAddRecipe);
 
-  function handleGetUserId() {
-    // The code below handles getting the User ID
-    $.get("/api/user", function(data) {
-      userIdHolderVal.text("User ID: " + data.user_id);
-    });
-  }
+  //function handleGetUserId() {
+  // The code below handles getting the User ID
+  //   $.get("/api/user", function(data) {
+  //     userIdHolderVal.text("User ID: " + data.user_id);
+  //   });
+  // }
 
   // Variable to hold our recipe
   var recipe;
@@ -46,15 +49,15 @@ $(document).ready(function() {
   function getRecipes(recipeId) {
     recipeId = "/?recipe_id=" + recipeId;
 
-    $.get("/api/showRecipe" + recipeId, function(data) {
+    $.get("/api/recipes" + recipeId, function(data) {
       console.log("Recipe", data);
       recipe = data;
       if (!recipe || !recipe.length) {
         recipeNameHolderVal.text("No Recipe Entered into Database");
       } else {
-        recipeNameHolderVal.append(data[i].recipeName);
-        ingredientsHolderVal.append(data[i].ingredients);
-        intructionsHolderVal.append(data[i].instructions);
+        recipeNameHolderVal.append(data[recipeId].recipeName);
+        ingredientsHolderVal.append(data[recipeId].ingredients);
+        intructionsHolderVal.append(data[recipeId].instructions);
       }
     });
   }
@@ -72,6 +75,8 @@ $(document).ready(function() {
     // Send an AJAX POST-request with jQuery
     $.post("/api/newKeyPair", newKeyPair)
       // On success, run the following code
-      .then(function() {});
+      .then(function() {
+        console.log("newKeyPair: " + newKeyPair);
+      });
   }
 });
