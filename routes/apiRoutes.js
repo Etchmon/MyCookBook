@@ -13,10 +13,10 @@ module.exports = function(app) {
   });
 
   // Get route getting all recipes ids from one user
-  app.get("/api/recipes/:id", function(req, res) {
+  app.get("/api/recipesUser/:id", function(req, res) {
     db.Recipes.findAll({
       where: {
-        user_id: req.params.id
+        id: req.params.id
       }
     }).then(function(dataMyRecipes) {
       res.json(dataMyRecipes);
