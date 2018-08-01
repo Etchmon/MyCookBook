@@ -1,7 +1,7 @@
 var db = require("../models");
-
-module.exports = function (app) {
-  app.get("/api/recipes/:id", function (req, res) {
+var bcrypt = require("bcrypt-nodejs");
+module.exports = function(app) {
+  app.get("/api/recipes/:id", function(req, res) {
     db.Recipes.findOne({
       where: {
         id: req.params.id
@@ -58,6 +58,34 @@ module.exports = function (app) {
 
       }).then(function (dataKeyPair) {
         res.json(dataKeyPair);
+      });
+      app.post("/api/login", function (req, res) {
+        db.User.findOne({
+          where: {
+            user_name: req.body.user_name
+          }
+        })
+          .then(function (data) {
+            if (data) {
+              bcrypt.compare(req.body.password, data.password, function (
+                err,
+                response
+              ) {
+                if (response) {
+                  res.json(data);
+                } else {
+                  res
+                    .status(400)
+                    .json({ message: "Wrong password", success: false });
+                }
+              });
+            } else {
+              res.status(404).send("No user found");
+            }
+          })
+          .catch(function (err) {
+            res.status(400).send(err);
+          });
       });
     });
   });
