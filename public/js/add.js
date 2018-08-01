@@ -15,19 +15,13 @@ $(document).ready(function () {
 
         insertRecipe({
             recipeName: recipeName.val().trim(),
-<<<<<<< HEAD
-            ingredients: ingredients.val().trim(),
-            instructions: instruction.val().trim(),
-            userid: localStorage.getItem("user")
-=======
             ingredients: allIngredients.join(),
             instructions: instruction.val().trim()
->>>>>>> c9129eb4988667e5bf08511cd56518851e1da6f0
         });
     }
     function insertRecipe(data) {
-        $.post("/api/recipes", data, function (response) {
-            console.log(response)
+        $.post("/api/recipes", data, function () {
+            window.location.href = "/cookbook";
         });
     }
 
