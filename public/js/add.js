@@ -16,7 +16,8 @@ $(document).ready(function () {
         insertRecipe({
             recipeName: recipeName.val().trim(),
             ingredients: allIngredients.join(),
-            instructions: instruction.val().trim()
+            instructions: instruction.val().trim(),
+            userid: localStorage.getItem("user")
         });
     }
     function insertRecipe(data) {
