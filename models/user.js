@@ -12,9 +12,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        photolink: {
+        link: {
             type: DataTypes.STRING,
-            allowNull: true
         }
     });
 
