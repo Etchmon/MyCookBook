@@ -6,87 +6,70 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function (dbRecipe) {
-      res.json(dbRecipe);
+    }).then(function(dataOneRecipe) {
+      res.json(dataOneRecipe);
     });
   });
 
   // Post route for saving a new Key Pair
-  app.post("/api/newKeyPair", function (req, res) {
-    db.KeyPair.create(req.body).then(function (dataKeyPair) {
+  app.post("/api/newKeyPair", function(req, res) {
+    db.KeyPair.create(req.body).then(function(dataKeyPair) {
       res.json(dataKeyPair);
     });
   });
 
-  // Get all users
-  app.get("/api/users", function (req, res) {
+  // Get all examples
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
+  app.get("/api/recipes", function(req, res) {
+    db.Recipes.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+  app.post("/api/login", function(req, res) {
     db.User.findOne({
       where: {
-        user_name: req.body.user_name,
-        password: req.body.password
+        user_name: req.body.user_name
       }
-    }).then(function (dbUsers) {
-      res.json(dbUsers);
-    });
-  });
-
-  app.get("/api/recipes", function (req, res) {
-    db.Recipes.findAll({}).then(function (dbRecipes) {
-      res.json(dbRecipes);
-    });
-  });
-
-  // Create a new user
-  app.post("/api/users", function (req, res) {
-    db.User.create(req.body).then(function (dbUser) {
-      res.json(dbUser);
-    });
-  });
-
-  app.post("/api/recipes", function (req, res) {
-    db.Recipes.create({
-
-      recipeName: req.body.recipeName,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions
-
-    }).then(function (dbRecipe) {
-      db.KeyPair.create({
-
-        user_id: req.body.userid,
-        recipe_id: dbRecipe.id
-
-      }).then(function (dataKeyPair) {
-        res.json(dataKeyPair);
-      });
-      app.post("/api/login", function (req, res) {
-        db.User.findOne({
-          where: {
-            user_name: req.body.user_name
-          }
-        })
-          .then(function (data) {
-            if (data) {
-              bcrypt.compare(req.body.password, data.password, function (
-                err,
-                response
-              ) {
-                if (response) {
-                  res.json(data);
-                } else {
-                  res
-                    .status(400)
-                    .json({ message: "Wrong password", success: false });
-                }
-              });
+    })
+      .then(function(data) {
+        if (data) {
+          bcrypt.compare(req.body.password, data.password, function(
+            err,
+            response
+          ) {
+            if (response) {
+              res.json(data);
             } else {
-              res.status(404).send("No user found");
+              res
+                .status(400)
+                .json({ message: "Wrong password", success: false });
             }
-          })
-          .catch(function (err) {
-            res.status(400).send(err);
           });
+        } else {
+          res.status(404).send("No user found");
+        }
+      })
+      .catch(function(err) {
+        res.status(400).send(err);
       });
+  });
+
+  app.post("/api/recipes", function(req, res) {
+    db.Recipes.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
     });
   });
 };
