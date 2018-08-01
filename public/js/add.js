@@ -2,8 +2,10 @@ $(document).ready(function () {
     var recipeName = $("#title");
     var ingredients = $("#ingredient");
     var instruction = $("#body");
+    var allIngredients = [];
 
     $(document).on("click", ".submit", handleRecipe);
+    $(document).on("click", ".add", addIngredient);
 
     function handleRecipe(event) {
         event.preventDefault();
@@ -13,7 +15,7 @@ $(document).ready(function () {
 
         insertRecipe({
             recipeName: recipeName.val().trim(),
-            ingredients: ingredients.val().trim(),
+            ingredients: allIngredients.join(),
             instructions: instruction.val().trim()
         });
     }
@@ -21,5 +23,14 @@ $(document).ready(function () {
         $.post("/api/recipes", data, function () {
             window.location.href = "/cookbook";
         });
+    }
+
+    function addIngredient() {
+        allIngredients.push(ingredients.val().trim());
+        console.log(allIngredients);
+        // ingredients.val("");
+        var list = $("<li>");
+        list.append(ingredients.val().trim());
+        $(".list").append(list);
     }
 })

@@ -1,8 +1,11 @@
 $(document).ready(function () {
   var userInput = $("#createUser");
   var userPassword = $("#createPswrd");
+  var oldUser = $("#loginUser");
+  var oldUserPass = $("#loginPswrd");
 
   $(document).on("click", "#add-btn2", handleUser);
+  $(document).on("click", "#add-btn", checkUser);
 
   function handleUser(event) {
     event.preventDefault();
@@ -18,6 +21,11 @@ $(document).ready(function () {
   function insertUser(data) {
     $.post("/api/users", data, function() {
       window.location.href = "/cookbook";
+    });
+  }
+  function checkUser() {
+    $.get("/api/users", function(data) {
+      console.log(data);
     });
   }
 });
