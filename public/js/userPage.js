@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var userInput = $("#createUser");
   var userPassword = $("#createPswrd");
   var oldUser = $("#loginUser");
@@ -9,7 +9,12 @@ $(document).ready(function () {
 
   function handleUser(event) {
     event.preventDefault();
-    if (!userInput.val().trim().trim()) {
+    if (
+      !userInput
+        .val()
+        .trim()
+        .trim()
+    ) {
       return;
     }
 
@@ -23,9 +28,18 @@ $(document).ready(function () {
       window.location.href = "/cookbook";
     });
   }
-  function checkUser() {
-    $.get("/api/users", function(data) {
-      console.log(data);
-    });
+  function checkUser(event) {
+    event.preventDefault();
+    var userData = {
+      user_name: oldUser.val().trim(),
+      password: oldUserPass.val().trim()
+    };
+    $.ajax({ method: "POST", url: "/api/login", data: userData })
+      .then(function(data) {
+        console.log(data);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 });
