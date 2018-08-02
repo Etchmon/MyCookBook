@@ -95,4 +95,15 @@ module.exports = function(app) {
       });
     });
  });
+
+ app.get("/api/recipesUser/:id", function(req, res) {
+  db.KeyPair.findAll({
+    where: {
+      user_id: req.params.id
+    }
+  }).then(function(dataMyRecipes) {
+    res.json(dataMyRecipes);
+  });
+});
+
 };

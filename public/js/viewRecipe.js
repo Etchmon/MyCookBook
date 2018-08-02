@@ -1,10 +1,5 @@
 $(document).ready(function() {
-  // userIdHolderVal holds the User ID of the recipe
-  var userIdHolderVal = $("#userIdHolder");
-
-  // Calling the handleGetUserId function
-  handleGetUserId();
-
+  var recipe = localStorage.getItem("recipe")
   // recipeNameHolderVal holds the name of the recipe
   var recipeNameHolderVal = $("#recipeNameHolder");
 
@@ -14,57 +9,49 @@ $(document).ready(function() {
   // intructionsHolderVal holds the instructions of the recipe
   var intructionsHolderVal = $("#intructionsHolder");
 
-  // Click events for the add recipe
-  $(document).on("click", "button.addRecipe", handleAddRecipe);
+ 
 
-  function handleGetUserId() {
-    // The code below handles getting the User ID
-    $.get("/api/user", function(data) {
-      userIdHolderVal.text("User ID: " + data.user_id);
-    });
-  }
-
-  // Variable to hold our recipe
-  var recipe;
 
   // Calling the handlePostRecipe function
   handleGetRecipe();
 
-  function handleGetRecipe() {
-    // The code below handles the case where we want a specific recipe
-    // Looks for a query param in the url for recipe_id
-    var url = window.location.search;
-    var recipeId;
 
-    recipeId = url.split("=")[1];
-    getRecipes(recipeId);
-  }
+  // This function grabs recipes from the database and updates the view
+  function  handleGetRecipe() {
 
-  // This function grabs posts from the database and updates the view
-  function getRecipes(recipeId) {
-    recipeId = "/?recipe_id=" + recipeId;
-
-    $.get("/api/showRecipe" + recipeId, function(data) {
-      console.log("Recipe", data);
-      recipe = data;
-      if (!recipe || !recipe.length) {
+    $.get("/api/recipes/"+recipe, function(response) {
+      console.log(response)
+      //recipeData = response;
+      if (!response){// || !response.length) {
         recipeNameHolderVal.text("No Recipe Entered into Database");
+        console.log("got here")
       } else {
-        recipeNameHolderVal.append(data[i].recipeName);
-        ingredientsHolderVal.append(data[i].ingredients);
-        intructionsHolderVal.append(data[i].instructions);
+        recipeNameHolderVal.append(response.recipeName);
+        ingredientsHolderVal.append(response.ingredients);
+        intructionsHolderVal.append(response.instructions);
+
+        var ingredientsStr = response.ingredients;
+        var ingredientsArr = ingredientsStr.split(",");
+
+        for (var i = 0; i < ingredientsArr.length; i++) { 
+          var list = $("<li>");
+          list.append(ingredientsArr[i]);
+          $(".list").append(list); 
+        }
+
       }
     });
   }
 
+ // Click events for the add recipe
+ $(document).on("click", ".viewbtn", handleAddRecipe);
+
+
   function handleAddRecipe() {
-    // Make a newChirp object
+    // Make a newKeyPair object
     var newKeyPair = {
-      user_id: $("#userIdHolder")
-        .val()
-        .trim(),
-      recipe_id: url.split("=")[1],
-      created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
+      user_id: localStorage.getItem("user"),
+      recipe_id: recipe,
     };
 
     console.log(newKeyPair);
@@ -72,6 +59,10 @@ $(document).ready(function() {
     // Send an AJAX POST-request with jQuery
     $.post("/api/newKeyPair", newKeyPair)
       // On success, run the following code
-      .then(function() {});
+      .then(function() {
+        console.log("newKeyPair: " + newKeyPair);
+        // Takes user to their cookbook page
+        window.location.href = "/cookbook";
+      });
   }
 });
