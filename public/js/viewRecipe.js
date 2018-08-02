@@ -20,20 +20,22 @@ $(document).ready(function() {
   function  handleGetRecipe() {
 
     $.get("/api/recipes/"+recipe, function(response) {
-      recipeData = response;
-      if (!recipeData || !recipeData.length) {
+      console.log(response)
+      //recipeData = response;
+      if (!response){// || !response.length) {
         recipeNameHolderVal.text("No Recipe Entered into Database");
+        console.log("got here")
       } else {
-        recipeNameHolderVal.append(response[0].recipeName);
-        ingredientsHolderVal.append(response[0].ingredients);
-        intructionsHolderVal.append(response[0].instructions);
+        recipeNameHolderVal.append(response.recipeName);
+        ingredientsHolderVal.append(response.ingredients);
+        intructionsHolderVal.append(response.instructions);
 
-        var ingredientsStr = response[0].ingredients;
+        var ingredientsStr = response.ingredients;
         var ingredientsArr = ingredientsStr.split(",");
 
         for (var i = 0; i < ingredientsArr.length; i++) { 
           var list = $("<li>");
-          list.append(ingredients.val().trim());
+          list.append(ingredientsArr[i]);
           $(".list").append(list); 
         }
 
@@ -48,7 +50,7 @@ $(document).ready(function() {
   function handleAddRecipe() {
     // Make a newKeyPair object
     var newKeyPair = {
-      user_id: user,
+      user_id: localStorage.getItem("user"),
       recipe_id: recipe,
     };
 
