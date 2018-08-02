@@ -29,9 +29,9 @@ $(document).ready(function () {
     function addIngredient() {
         allIngredients.push(ingredients.val().trim());
         console.log(allIngredients);
-        // ingredients.val("");
         var list = $("<li>");
         list.append(ingredients.val().trim());
         $(".list").append(list);
+        ingredients.val("");
     }
 })

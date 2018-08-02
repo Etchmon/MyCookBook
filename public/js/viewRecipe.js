@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var recipe = localStorage.getItem("recipe")
+  var recipe = localStorage.getItem("recipe");
   // recipeNameHolderVal holds the name of the recipe
   var recipeNameHolderVal = $("#recipeNameHolder");
 
@@ -9,49 +9,43 @@ $(document).ready(function() {
   // intructionsHolderVal holds the instructions of the recipe
   var intructionsHolderVal = $("#intructionsHolder");
 
- 
-
-
   // Calling the handlePostRecipe function
   handleGetRecipe();
 
-
   // This function grabs recipes from the database and updates the view
-  function  handleGetRecipe() {
-
-    $.get("/api/recipes/"+recipe, function(response) {
-      console.log(response)
+  function handleGetRecipe() {
+    $.get("/api/recipes/" + recipe, function(response) {
+      console.log(response);
       //recipeData = response;
-      if (!response){// || !response.length) {
+      if (!response) {
+        // || !response.length) {
         recipeNameHolderVal.text("No Recipe Entered into Database");
-        console.log("got here")
+        console.log("got here");
       } else {
         recipeNameHolderVal.append(response.recipeName);
-        ingredientsHolderVal.append(response.ingredients);
+        // ingredientsHolderVal.append(response.ingredients);
         intructionsHolderVal.append(response.instructions);
 
         var ingredientsStr = response.ingredients;
         var ingredientsArr = ingredientsStr.split(",");
 
-        for (var i = 0; i < ingredientsArr.length; i++) { 
+        for (var i = 0; i < ingredientsArr.length; i++) {
           var list = $("<li>");
           list.append(ingredientsArr[i]);
-          $(".list").append(list); 
+          $(".list").append(list);
         }
-
       }
     });
   }
 
- // Click events for the add recipe
- $(document).on("click", ".viewbtn", handleAddRecipe);
-
+  // Click events for the add recipe
+  $(document).on("click", ".viewbtn", handleAddRecipe);
 
   function handleAddRecipe() {
     // Make a newKeyPair object
     var newKeyPair = {
       user_id: localStorage.getItem("user"),
-      recipe_id: recipe,
+      recipe_id: recipe
     };
 
     console.log(newKeyPair);
