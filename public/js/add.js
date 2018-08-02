@@ -24,7 +24,7 @@ $(document).ready(function () {
         $.post("/api/recipes", data, function () {
             window.location.href = "/cookbook";
         });
-    }
+    }s
 
     function addIngredient() {
         allIngredients.push(ingredients.val().trim());

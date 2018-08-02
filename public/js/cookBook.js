@@ -1,21 +1,20 @@
 $(document).ready(function() {
   var userId = localStorage.getItem("user");
-  $.get("/api/recipes/" + userId, function(res) {
-    res.forEach(function(element) {
-      $.get("/api/recipes/" + element.recipe_id, function(response) {
-        //for (var i = 0; i < res.length; i++)
+  $.get("/api/recipesUser/" + localStorage.getItem("user"), function (data) {
+
+    data.forEach(element => {
+      $.get("/api/recipes/" + element.recipe_id, function (response) {
+        console.log(response)
         var recipe = $("<div>");
-        recipe.append("<tr>" + "<td>" + response[i].name + "</td>" + "</tr>");
-        recipe.attr("data-id", response[i].id);
+        recipe.append("<tr>" + "<td>" + "<a href=/view>" + response.recipeName + "</a>"+"</td>" + "</tr>");
+        recipe.attr("data-id", response.id);
         recipe.addClass("recipe");
-        $("#recipeList").append(recipe);
+        $("#recipeLinksUser").append(recipe); 
       });
     });
 
-    $("#recipeList").on("click", ".recipe", function() {
-      var recipeId = $(this)
-        .attr("data-id")
-        .val();
+    $(document).on("click", ".recipe", function() {
+      var recipeId = $(this).attr("data-id");
       localStorage.setItem("recipe", recipeId);
       window.location.href = "/cookbook";
     });
