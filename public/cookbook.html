@@ -10,8 +10,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
+<<<<<<< HEAD
   <link rel="stylesheet" href="../public/styles/styles.css">
 
+=======
+  <link rel="stylesheet" href="/styles/styles.css">
+>>>>>>> ff5e36ad63884e41cdc5e2b2488922c44f083daa
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>My Cookbook - Cookbook Manager</title>
 </head>
@@ -73,12 +77,11 @@
             <p class="card-text">
               <em>This cookbook belongs to...</em>
             </p>
-            <h5 class="card-title">Alice Roach</h5>
+            <h5 class="card-title" id="userName"></h5>
           </div>
           <!--append user image here-->
-          <div id="userImage">
-            <img class="card-img-top" src="https://media.licdn.com/dms/image/C4E03AQG7tb3rkiz7VQ/profile-displayphoto-shrink_200_200/0?e=1538611200&v=beta&t=DpjV59mv9yRWP4gySh9-V8iNhnxrAgKmfxW4BtqprOU"
-              alt="Card image cap">
+          <div >
+            <img id="userImage" src="http://via.placeholder.com/200x200" alt="">
           </div>
         </div>
       </div>
@@ -94,27 +97,13 @@
 
           <tbody id="recipeLinksUser">
             <!--append this code-->
-            <tr>
+            <!--<tr>
               <td>
                 <a href="#">Reciepe</a>
               </td>
-            </tr>
+            </tr>-->
             <!--end-->
-            <tr>
-              <td>
-                <a href="#">Fresh Tomato Salsa</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Fresh Tomato Salsa</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Fresh Tomato Salsa</a>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
         <br>
@@ -140,6 +129,7 @@
     <!--END footer-->
 
   </div>
+  <script src="/js/cookBook.js"></script>
 </body>
 
 </html>

@@ -77,9 +77,33 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/recipes", function(req, res) {
-    db.Recipes.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  app.post("/api/recipes", function (req, res) {
+    db.Recipes.create({
+
+      recipeName: req.body.recipeName,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
+      
+    }).then(function (dbRecipe) {
+      db.KeyPair.create({
+
+        user_id: req.body.userid,
+        recipe_id: dbRecipe.id
+
+      }).then(function (dataKeyPair) {
+        res.json(dataKeyPair);
+      });
     });
+ });
+
+ app.get("/api/recipesUser/:id", function(req, res) {
+  db.KeyPair.findAll({
+    where: {
+      user_id: req.params.id
+    }
+  }).then(function(dataMyRecipes) {
+    res.json(dataMyRecipes);
   });
+});
+
 };

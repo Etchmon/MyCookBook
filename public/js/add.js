@@ -16,14 +16,15 @@ $(document).ready(function () {
         insertRecipe({
             recipeName: recipeName.val().trim(),
             ingredients: allIngredients.join(),
-            instructions: instruction.val().trim()
+            instructions: instruction.val().trim(),
+            userid: localStorage.getItem("user")
         });
     }
     function insertRecipe(data) {
         $.post("/api/recipes", data, function () {
             window.location.href = "/cookbook";
         });
-    }
+    }s
 
     function addIngredient() {
         allIngredients.push(ingredients.val().trim());
