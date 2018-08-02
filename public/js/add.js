@@ -27,7 +27,6 @@ $(document).ready(function() {
   }
   function insertRecipe(data) {
     $.post("/api/recipes", data, function() {
-        
       // clearing the recipe name from the text box
       document.getElementById("title").value = "";
 
