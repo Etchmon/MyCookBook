@@ -41,6 +41,7 @@ $(document).ready(function() {
       $.ajax({ method: "POST", url: "/api/login", data: userData })
         .then(function(data) {
           console.log(data);
+          localStorage.setItem("user", data.id);
           window.location.href = "/cookbook";
         })
         .catch(function(err) {
