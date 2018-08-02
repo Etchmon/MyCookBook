@@ -5,25 +5,17 @@ $(document).ready(function() {
   var oldUserPass = $("#loginPswrd");
   var userImage = $("#photo");
 
-<<<<<<< HEAD
-  $(document).on("click", "#add-btn", authenticateUser);
-=======
->>>>>>> ce7d33dc035556c8bc61f655cd2b248d0057ebc6
   $(document).on("click", "#add-btn2", handleUser);
   $(document).on("click", "#add-btn", checkUser);
 
   function handleUser(event) {
     event.preventDefault();
-<<<<<<< HEAD
-    if (!userInput.val().trim()) {
-=======
     if (
       !userInput
         .val()
         .trim()
         .trim()
     ) {
->>>>>>> ce7d33dc035556c8bc61f655cd2b248d0057ebc6
       return;
     }
 

@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "MyDATA",
-=======
-    "password": "password",
->>>>>>> b624587a922e8c0d2007dc6e2ee1e0120f87ad21
     "database": "cookBook",
     "host": "localhost",
     "dialect": "mysql"

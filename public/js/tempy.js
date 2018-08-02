@@ -1,8 +1,8 @@
 
-$.get('/api/recipes', function(res){
+$.get('/api/recipesUser/:id', function(res){
     for(var i =0; i < res.length; i++){
       var recipe = $('<div>');
-      recipe.append('<p>' + res[i].name '</p>');
+      recipe.append('<p>' + res[i].name +'</p>');
       recipe.attr('data-id', res[i].id);
       recipe.addClass('recipe');
       $('#recipeList').append(recipe);
