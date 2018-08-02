@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/styles.css">
-   
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>My Cookbook - Cookbook Manager</title>
@@ -35,11 +35,6 @@
                 <ul class="navbar-nav ml-auto">
 
                     <!-- The links of our navbar -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="cookbook.html">My Cookbook</a>
@@ -51,6 +46,12 @@
 
                     <li class="nav-item">
                         <a class="nav-link active" href="browse.html">Browse Recipes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Log Out
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
 
                 </ul>
@@ -69,23 +70,23 @@
         <!--spacer div-->
         <div class="col-md-12"></div>
         <div class="row">
-        <!--START recipe links-->
-        <div class="col-md-8">
-            <h4>Browse Recipes</h4>
-            <table class="table table-hover table-light">
+            <!--START recipe links-->
+            <div class="col-md-8">
+                <h4>Browse Recipes</h4>
+                <table class="table table-hover table-light">
 
-                <tbody id="recipeLinksAll">
-                    
-                </tbody>
-            </table>
-            <br>
-            <br>
-            <!--END recipe links-->
+                    <tbody id="recipeLinksAll">
 
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-            <!--<script type="text/javascript">
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <!--END recipe links-->
+
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <!--<script type="text/javascript">
                     // Example queryURL for Giphy API
                     var queryURL = "https://api.giphy.com/v1/gifs/search?q=recipes&api_key=dc6zaTOxFJmzC";
                     
@@ -98,20 +99,27 @@
                     });
                   </script>-->
                 <div id="movies-view"></div>
-                <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/AwrbttuDZTzOw" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><br>
-                <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/LJ2YEqB6z78Tm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+                    <iframe src="https://giphy.com/embed/AwrbttuDZTzOw" width="100%" height="100%" style="position:absolute"
+                        frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+                <br>
+                <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+                    <iframe src="https://giphy.com/embed/LJ2YEqB6z78Tm" width="100%" height="100%" style="position:absolute"
+                        frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+            </div>
         </div>
-   </div>
-    <!--START footer-->
-    <div>&nbsp;</div>
-    <div class="card bg-dark text-white">
-        <span align="center">
+        <!--START footer-->
+        <div>&nbsp;</div>
+        <div class="card bg-dark text-white">
+            <span align="center">
 
-            <p class="card-text">&copy;
-                <script>new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>, My Cookbook Inc.</p>
-        </span>
-    </div>
-    <!--END footer-->
+                <p class="card-text">&copy;
+                    <script>new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>, My Cookbook Inc.</p>
+            </span>
+        </div>
+        <!--END footer-->
 
     </div>
     <script src="/js/browse.js"></script>

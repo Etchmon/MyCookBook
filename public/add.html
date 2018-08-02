@@ -8,32 +8,81 @@
         crossorigin="anonymous">
 
     <title>Add Recipe</title>
+
 </head>
 
-<body>   
+<body>
     <div class="container">
-        <div class="col-md-5 offset-md-3">
-            <form id="cms">
-                <div class="form-group">
-                    <h2 for="title">Recipe Name:</h2>
-                    <input type="text" class="form-control" id="title">
-                    <br />
-                    <h2 for="ingredients">Ingredients</h2>
-                    <input type="text" class="form-control" id="ingredient">
-                    <button type="button" class="btn-primary add">Add Ingredient!</button>
-                    <ul class="list">
-
-                    </ul>
-                    <h2 for="body">Instructions:</h2>
-                    <textarea class="form-control" rows="10" id="body"></textarea>
-                    <br />
-                    <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
-                </div>
-            </form>
+        <!-- START Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- Our brand / logo -->
+            <a class="navbar-brand" href="#">My Cookbook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapsible button -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <!-- The links of our navbar -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="cookbook.html">My Cookbook</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add a Recipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="browse.html">Browse Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Log Out
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- END Navbar-->
+        <!-- Pretty Image-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron" id="jumbosm" style="background-image: url(images/table.jpg)"></div>
+            </div>
         </div>
+        <br>
+        <div class="container">
+            <div class="col-md-5 offset-md-3">
+                <form id="cms">
+                    <div class="form-group">
+                        <h2 for="title">Recipe Name:</h2>
+                        <input type="text" class="form-control" id="title">
+                        <br />
+                        <h2 for="ingredients">Ingredients</h2>
+                        <input type="text" class="form-control" id="ingredient">
+                        <button type="button" class="btn-primary add">Add Ingredient!</button>
+                        <ul class="list">
+
+                        </ul>
+                        <h2 for="body">Instructions:</h2>
+                        <textarea class="form-control" rows="10" id="body"></textarea>
+                        <br />
+                        <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--START footer-->
+        <div>&nbsp;</div>
+        <div class="card bg-dark text-white">
+            <span align="center">
+
+                <p class="card-text">&copy;
+                    <script>new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());</script>, My Cookbook Inc.</p>
+            </span>
+        </div>
+        <!--END footer-->
+
     </div>
-
-
     </div>
 
 
