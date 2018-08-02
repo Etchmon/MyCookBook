@@ -14,14 +14,14 @@ module.exports = function(app) {
 
   // Get route getting all recipes ids from one user
   app.get("/api/recipesUser/:id", function(req, res) {
-    db.Recipes.findAll({
+    db.KeyPair.findAll({
       where: {
-        id: req.params.id
+        user_id: req.params.id
       }
     }).then(function(dataMyRecipes) {
       res.json(dataMyRecipes);
     });
-  });
+
 
   // Post route for saving a new Key Pair
   app.post("/api/newKeyPair", function(req, res) {
