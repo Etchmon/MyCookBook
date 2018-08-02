@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     data.forEach(element => {
       $.get("/api/recipes/" + element.recipe_id, function (response) {
-        console.log(response)
+        //console.log(response)
         var recipe = $("<div>");
         recipe.append("<tr>" + "<td>" + "<a href=/view>" + response.recipeName + "</a>"+"</td>" + "</tr>");
         recipe.attr("data-id", response.id);
@@ -21,8 +21,14 @@ $(document).ready(function() {
   });
 
   //append username and photo to page
-  $.get("/api/user/" + userId, function(data) {
+  $.get("/api/users/" + userId, function(data) {
+    //console.log(data)
     $("#userName").text(data.user_name);
-    $("#userImg").attr("src", data.link);
+    if (!data.link){
+      $("#userImage").attr("src", "http://via.placeholder.com/200x200");
+    }
+    else{
+    $("#userImage").attr("src", data.link);
+    }
   });
 });
