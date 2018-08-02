@@ -9,12 +9,7 @@ $(document).ready(function() {
 
   function handleRecipe(event) {
     event.preventDefault();
-    if (
-      !recipeName
-        .val()
-        .trim()
-        .trim()
-    ) {
+    if (!recipeName.val().trim()) {
       return;
     }
 
