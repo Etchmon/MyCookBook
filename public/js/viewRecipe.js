@@ -64,7 +64,7 @@ $(document).ready(function() {
         .val()
         .trim(),
       recipe_id: url.split("=")[1],
-      created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
+      created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     };
 
     console.log(newKeyPair);
