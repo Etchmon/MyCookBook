@@ -4,10 +4,8 @@ $(document).ready(function() {
   var oldUser = $("#loginUser");
   var oldUserPass = $("#loginPswrd");
   var userImage = $("#photo");
-
   $(document).on("click", "#add-btn2", handleUser);
   $(document).on("click", "#add-btn", checkUser);
-
   function handleUser(event) {
     event.preventDefault();
     if (
@@ -18,7 +16,6 @@ $(document).ready(function() {
     ) {
       return;
     }
-
     insertUser({
       user_name: userInput.val().trim(),
       password: userPassword.val().trim(),
@@ -41,6 +38,7 @@ $(document).ready(function() {
     $.ajax({ method: "POST", url: "/api/login", data: userData })
       .then(function(data) {
         console.log(data);
+        localStorage.setItem("user", data.id);
         window.location.href = "/cookbook";
       })
       .catch(function(err) {

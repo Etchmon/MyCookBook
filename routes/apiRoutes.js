@@ -1,7 +1,6 @@
 var db = require("../models");
 var bcrypt = require("bcrypt-nodejs");
 module.exports = function(app) {
-  // Get route getting one recipe
   app.get("/api/recipes/:id", function(req, res) {
     db.Recipes.findOne({
       where: {
@@ -11,55 +10,38 @@ module.exports = function(app) {
       res.json(dataOneRecipe);
     });
   });
-
-  // Get route getting all recipes ids from one user
-  app.get("/api/recipesUser/:id", function(req, res) {
-    db.KeyPair.findAll({
-      where: {
-        user_id: req.params.id
-      }
-    }).then(function(dataMyRecipes) {
-      res.json(dataMyRecipes);
-    });
-
-
   // Post route for saving a new Key Pair
   app.post("/api/newKeyPair", function(req, res) {
     db.KeyPair.create(req.body).then(function(dataKeyPair) {
       res.json(dataKeyPair);
     });
   });
-
   // Get all examples
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
-
   app.get("/api/users/:id", function(req, res) {
     db.User.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dbUsers) {
-      res.json(dbUsers);
+    }).then(function(dbExamples) {
+      res.json(dbExamples);
     });
   });
-
   app.get("/api/recipes", function(req, res) {
     db.Recipes.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
-
   // Create a new example
   app.post("/api/users", function(req, res) {
     db.User.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
-
   app.post("/api/login", function(req, res) {
     db.User.findOne({
       where: {
@@ -88,23 +70,9 @@ module.exports = function(app) {
         res.status(400).send(err);
       });
   });
-
-  app.post("/api/recipes", function (req, res) {
-    db.Recipes.create({
-
-      recipeName: req.body.recipeName,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions
-      
-    }).then(function (dbRecipe) {
-      db.KeyPair.create({
-
-        user_id: req.body.userid,
-        recipe_id: dbRecipe.id
-
-      }).then(function (dataKeyPair) {
-        res.json(dataKeyPair);
-      });
+  app.post("/api/recipes", function(req, res) {
+    db.Recipes.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
     });
- });
+  });
 };
