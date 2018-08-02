@@ -5,21 +5,67 @@
   <meta charset="UTF-8">
   <title>My Cookbook - View Recipe</title>
   <!-- Latest compiled and minified CSS & JS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
 
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+  
 </head>
 
 <body>
+
+    <div class="container">
+
+        <!-- START Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <!-- Our brand / logo -->
+            <a class="navbar-brand" href="#">My Cookbook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible button -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- The links of our navbar -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="cookbook.html">My Cookbook</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">Add a Recipe</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="browse.html">Browse Recipes</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- END Navbar-->
+
+        <!-- Pretty Image-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron" id="jumbosm" style="background-image: url(images/table.jpg)"></div>
+            </div>
+        </div>
   <!-- Jumbotron -->
-  <div class="container viewRecipe">
-    <div class="jumbotron" id="jumboVr">
-      <h1>My Cookbook</h1>
-    </div>
+  <div class="col-md-12"></div>
+       
 
     <!-- Recipe Name Holder -->
     <div class="row">
@@ -90,7 +136,7 @@
       </div>
     </div>
 
-
+</div>
 
 
 
